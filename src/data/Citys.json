@@ -1,0 +1,20 @@
+[
+  {
+    "img": "https://historia.nationalgeographic.com.es/medio/2019/12/11/coliseo-roma_2924b6ae_1280x720.jpg",
+    "cityName": "Roma",
+    "description": "Roma, la capital de Italia, es una extensa ciudad cosmopolita que tiene a la vista casi 3,000 años de arte, arquitectura y cultura de influencia mundial.",
+    "href": "peoplemakeglasgow.com"
+  },
+  {
+    "img": "https://www.turismoviajar.com/wp-content/uploads/2019/10/Manchester-2020.jpg",
+    "cityName": "Manchester",
+    "description": "Manchester es una ciudad y distrito metropolitano, así como la principal ciudad en el condado metropolitano del Gran Mánchester en el noroeste de Inglaterra. Manchester es la 6a ciudad más grande del Reino Unido con una población estimada de 530.300 habitantes.",
+    "href": "visitmanchester.com"
+  },
+  {
+    "img": "https://3mediohistoriaelectivo17.files.wordpress.com/2017/06/egali-intercambio-londres-01.jpg",
+    "cityName": "London",
+    "description": "Londres fue fundada por los romanos con el nombre de Londinium, está ubicada a orillas del río Támesis, al suroeste de la isla de Gran Bretaña. Londres es la capital de Inglaterra, está dividida por 33 distritos,",
+    "href": "visitlondon.com"
+  }
+]
