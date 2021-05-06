@@ -3,6 +3,7 @@ import React from "react";
 import Heading from ".//components/Heading";
 import TurisInfoCard from "./components/TurisInfoCard";
 import Bookings from "./components/Bookings";
+import Restaurant from "./components/Restaurant";
 import Citys from "./data/Citys.json";
 import Footer from "./components/Footer";
 import "./App.css";
@@ -28,6 +29,7 @@ const App = () => {
           );
         })}
       </section>
+      <Restaurant />
       <Bookings />
       <Footer />
     </div>

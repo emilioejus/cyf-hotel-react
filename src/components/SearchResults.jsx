@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Moment from "moment";
 
 const SearchResult = ({ results }) => {
@@ -19,8 +19,14 @@ const SearchResult = ({ results }) => {
       </thead>
       <tbody>
         {results.map((element, index) => {
+          const [selector, setSelector] = useState(false);
+          const hello = () => {
+            selector ? setSelector(false) : setSelector(true);
+          };
+          let inDate = Moment(element.checkInDate.split("-"));
+          let outDate = Moment(element.checkOutDate.split("-"));
           return (
-            <tr>
+            <tr onClick={hello}>
               <th scope="row">{element.id}</th>
               <td>{element.title}</td>
               <td>{element.firstName}</td>
@@ -29,13 +35,14 @@ const SearchResult = ({ results }) => {
               <td>{element.roomId}</td>
               <td>{element.checkInDate}</td>
               <td>{element.checkOutDate}</td>
-              <td>
-                {Moment(element.checkOutDate.split("-")).diff(
-                  Moment(element.checkInDate.split("-")),
-                  "days"
-                )}{" "}
-                noches
-              </td>
+
+              {selector ? (
+                <td className="reservation-blue">
+                  {outDate.diff(inDate, "days")} noches
+                </td>
+              ) : (
+                <td>{outDate.diff(inDate, "days")} noches</td>
+              )}
             </tr>
           );
         })}

@@ -59,3 +59,33 @@ tr {
 .card {
   width: 18rem;
 }
+.food-div {
+  display: flex;
+  justify-content: center;
+}
+.food-master > h3 {
+  padding-top: 2em;
+  text-align: center;
+}
+.food-ul {
+  padding: 25px 25px 25px 25px;
+  height: 15em;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  border: 2px solid gray;
+  border-radius: 20px;
+}
+.food-list {
+  display: flex;
+  justify-content: space-between;
+  width: 20em;
+  border: 1px solid gray;
+  border-radius: 10px;
+  align-items: center;
+  padding-left: 10px;
+}
+.reservation-blue {
+  background-color: blue;
+  color: white;
+}
