@@ -5,8 +5,8 @@ import Order from "./Order";
 const Restaurant = () => {
   // const pizzas = 0;
   let food = ["Pizza", "Salad", "Chocolate Cake"];
-  let renderFood = food => {
-    return <Order typeFood={food} />;
+  let renderFood = (food, index) => {
+    return <Order key={index} typeFood={food} />;
   };
 
   return (

@@ -1,7 +1,38 @@
 import React, { useState } from "react";
 import Moment from "moment";
+import IdButton from "./IdButton";
+import CustomerProfile from "./CustomerProfile";
 
-const SearchResult = ({ results }) => {
+const SearchResult = props => {
+  const { results, searchId } = props;
+
+  // state
+  const [selector, setSelector] = useState(null);
+  const [profiles, setProfiles] = useState(results);
+
+  // fuction para seleccionar columna de reservations
+  const selecRow = index => {
+    selector === index ? setSelector(null) : setSelector(index);
+  };
+
+  // function para modificar de mayor a menor la tabla
+  Array.prototype.orderByNumber = function(p, s) {
+    if (s != -1 && s != 1) s = 1;
+    this.sort(function(a, b) {
+      return (a[p] - b[p]) * s;
+    });
+  };
+
+  const majorMinor = profiles => {
+    profiles[0].id === 1
+      ? profiles.orderByNumber("id", -1)
+      : profiles.orderByNumber("id", 1);
+  };
+
+  // const renderCustomer = (id)=> {
+  //   return <CustomerProfile id={id}/>
+  // }
+
   return (
     <table className="table">
       <thead className="thead-dark">
@@ -18,31 +49,91 @@ const SearchResult = ({ results }) => {
         </tr>
       </thead>
       <tbody>
-        {results.map((element, index) => {
-          const [selector, setSelector] = useState(false);
-          const hello = () => {
-            selector ? setSelector(false) : setSelector(true);
-          };
+        {profiles.map((element, index) => {
           let inDate = Moment(element.checkInDate.split("-"));
           let outDate = Moment(element.checkOutDate.split("-"));
           return (
-            <tr onClick={hello}>
-              <th scope="row">{element.id}</th>
-              <td>{element.title}</td>
-              <td>{element.firstName}</td>
-              <td>{element.surname}</td>
-              <td>{element.email}</td>
-              <td>{element.roomId}</td>
-              <td>{element.checkInDate}</td>
-              <td>{element.checkOutDate}</td>
+            <tr key={index}>
+              <th
+                onClick={() => {
+                  selecRow(index), majorMinor(profiles);
+                }}
+                scope="row"
+              >
+                {element.id}
+              </th>
+              <td
+                onClick={() => {
+                  selecRow(index), majorMinor(profiles);
+                }}
+              >
+                {element.title}
+              </td>
+              <td
+                onClick={() => {
+                  selecRow(index), majorMinor(profiles);
+                }}
+              >
+                {element.firstName}
+              </td>
+              <td
+                onClick={() => {
+                  selecRow(index), majorMinor(profiles);
+                }}
+              >
+                {element.surname}
+              </td>
+              <td
+                onClick={() => {
+                  selecRow(index), majorMinor(profiles);
+                }}
+              >
+                {element.email}
+              </td>
+              <td
+                onClick={() => {
+                  selecRow(index), majorMinor(profiles);
+                }}
+              >
+                {element.roomId}
+              </td>
+              <td
+                onClick={() => {
+                  selecRow(index), majorMinor(profiles);
+                }}
+              >
+                {element.checkInDate}
+              </td>
+              <td
+                onClick={() => {
+                  selecRow(index), majorMinor(profiles);
+                }}
+              >
+                {element.checkOutDate}
+              </td>
 
-              {selector ? (
-                <td className="reservation-blue">
+              {selector === index ? (
+                <td
+                  onClick={() => {
+                    selecRow(index), majorMinor(profiles);
+                  }}
+                  className="reservation-blue"
+                >
                   {outDate.diff(inDate, "days")} noches
                 </td>
               ) : (
-                <td>{outDate.diff(inDate, "days")} noches</td>
+                <td
+                  onClick={() => {
+                    selecRow(index), majorMinor(profiles);
+                  }}
+                >
+                  {outDate.diff(inDate, "days")} noches
+                </td>
               )}
+              <td>
+                {" "}
+                <IdButton logic={searchId} id={element.id} name="ShowProfile" />
+              </td>
             </tr>
           );
         })}

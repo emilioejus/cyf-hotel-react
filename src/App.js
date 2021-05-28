@@ -15,7 +15,7 @@ const App = () => {
     <div className="App">
       <Heading img={imagen} />
       <section className="App-section">
-        {console.log(Citys[0].img)}
+        {/* {console.log(Citys[0].img)} */}
         {Citys.map((city, index) => {
           return (
             <TurisInfoCard

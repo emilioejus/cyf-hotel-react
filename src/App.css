@@ -55,6 +55,9 @@ tr {
   padding-top: 20px;
   text-align: center;
 }
+.footer > ul {
+  list-style: none;
+}
 
 .card {
   width: 18rem;
@@ -88,4 +91,22 @@ tr {
 .reservation-blue {
   background-color: blue;
   color: white;
+}
+
+.div-form {
+  padding: 1em;
+  margin: 0 20em 4em 20em;
+  border: 1px solid gray;
+  border-radius: 20px;
+}
+
+.form-all {
+}
+.form-all > h2 {
+  margin: 2em 0 0 0;
+  text-align: center;
+}
+
+.customer {
+  margin: 40px;
 }
